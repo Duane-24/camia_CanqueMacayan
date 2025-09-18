@@ -1,0 +1,31 @@
+Budget Calculator for Students
+
+Problem Discription: We know most students get their stipend or allowance, but suddenly it disapperared, you spent it on thing you want, foodpanda, and etc. We think you really need to spend wisely, and a budget calculator will surely help you.
+
+Features:
+- Calculates how much you have to spend
+- Uses percentage like: (20% of allowance is for food)
+- Shows error if the total reaches more than 100%
+-
+
+How to run the program:
+1. Make sure that you have python interpreter
+2. Have a copy of our code
+3.Paste it on your python application
+4.Press "Run"
+5.Follow the instructions given
+
+Example Output
+How much money do you have?:
+
+Enter how many percent on Food:
+Enter how many percent on Necessities :
+Enter how many percent on Wants:
+Enter how many percent for school purposes:
+
+Do you want to add another? [Yes\No]
+
+Budget for Food:
+Budget for Necessities:
+Budget for Wants:
+Budget for School Purposes:
