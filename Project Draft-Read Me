@@ -16,16 +16,23 @@ How to run the program:
 5.Follow the instructions given
 
 Example Output
-How much money do you have?:
 
-Enter how many percent on Food:
-Enter how many percent on Necessities :
-Enter how many percent on Wants:
-Enter how many percent for school purposes:
+Is this [monthly/weekly] budget?
+
+How much money do you have?: 5000
+
+Enter how many percent on Food: 35%
+Enter how many percent on Necessities : 25%
+Enter how many percent on Wants: 20%
+Enter how many percent for School purposes: 20%
 
 Do you want to add another? [Yes\No]
 
-Budget for Food:
-Budget for Necessities:
-Budget for Wants:
-Budget for School Purposes:
+N0, so here is your budget for the month/week.
+
+Budget for Food: ₱1750
+Budget for Necessities: ₱1250
+Budget for Wants: ₱1000
+Budget for School Purposes: ₱1000
+
+#Contributors
