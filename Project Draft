@@ -6,7 +6,6 @@ Features:
 - Calculates how much you have to spend
 - Uses percentage like: (20% of allowance is for food)
 - Shows error if the total reaches more than 100%
--
 
 How to run the program:
 1. Make sure that you have python interpreter
