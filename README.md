@@ -21,21 +21,22 @@ Is this [monthly/weekly] budget?
 
 How much money do you have?: 5000
 
-Enter how many percent on Food: 35%
-Enter how many percent on Necessities : 25%
-Enter how many percent on Wants: 20%
-Enter how many percent for School purposes: 20%
+Enter how many percent on Food: 35%  
+Enter how many percent on Necessities : 25%  
+Enter how many percent on Wants: 20%  
+Enter how many percent for School purposes: 20%  
 
 Do you want to add another? [Yes\No]
 
 N0, so here is your budget for the month/week.
 
-Budget for Food: ₱1750
-Budget for Necessities: ₱1250
-Budget for Wants: ₱1000
+Budget for Food: ₱1750  
+Budget for Necessities: ₱1250  
+Budget for Wants: ₱1000  
 Budget for School Purposes: ₱1000
 
 #Contributors
-Jazmin Mathea Canque - created the Problem Discription, and steps on How to run the program
-Duane Rainer Macayan - made the Features, Example Output, and flowchart 
+
+Jazmin Mathea Canque - created the Problem Discription, and steps on How to run the program  
+Duane Rainer Macayan - made the Features, Example Output, and flowchart  
 
