@@ -8,11 +8,11 @@ Problem Discription: We know most students get their stipend or allowance, but s
 - Asks if there is extra, and puts it into Savings
 
 ```How to run the program:```
-1. Make sure that you have python interpreter 
-2. Have a copy of our code 
-3.Paste it on your python application 
-4.Press "Run" 
-5.Follow the instructions given 
+1. Make sure that you have python interpreter.
+2. Have a copy of our code.
+3.Paste it on your python application.
+4.Press "Run".
+5.Follow the instructions given.
 
 ```Example Output```
 
