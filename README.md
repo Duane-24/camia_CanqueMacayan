@@ -1,11 +1,11 @@
 ```Budget Calculator for Students```
 
-Problem Discription: We know most students get their stipend or allowance, but suddenly it disapperared, you spent it on thing you want, foodpanda, and etc. We think you really need to spend wisely, and a budget calculator will surely help you.
+Problem Discription: We know that most students receive their allowance or stipend, but it usually disappears fast because it’s spent on things we want, food deliveries, and other unnecessary stuff. Before we know it, there’s nothing left for savings or school needs. That’s why we think it’s important to spend wisely, and a budget calculator can really help us manage our allowance better.
 
 ```Features:```
 - Calculates how much you have to spend
 - Uses percentage like: (20% of allowance is for food)
-- Asks if there is extra, and puts it into Savings
+- Asks if there is extra, and adds it to your current savings  
 
 ```How to run the program:```
 
@@ -19,21 +19,23 @@ Problem Discription: We know most students get their stipend or allowance, but s
 
 Is this [monthly/weekly] budget?
 
-How much money do you have?: 5000
+How much money do you have?: 7500
 
-Enter how many percent on Food: 35%  
-Enter how many percent on Necessities : 25%  
-Enter how many percent on Wants: 20%  
+Enter how many percent for Savings: 20%  
+Enter how many percent on Food: 28%  
+Enter how many percent on Necessities : 22%  
+Enter how many percent on Wants: 10%  
 Enter how many percent for School purposes: 20%  
 
 Do you want to add another? [Yes\No]
 
 N0, so here is your budget for the month/week.
 
-Budget for Food: ₱1750  
-Budget for Necessities: ₱1250  
-Budget for Wants: ₱1000  
-Budget for School Purposes: ₱1000
+Budget for Savings: ₱1500   
+Budget for Food: ₱2100    
+Budget for Necessities: ₱1650   
+Budget for Wants: ₱750   
+Budget for School Purposes: ₱1500  
 
 #Contributors
 
