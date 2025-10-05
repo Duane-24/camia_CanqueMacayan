@@ -1,4 +1,4 @@
-```Budget Calculator for Students```
+```SmartSpend: Budget Calculator for Scholars```
 
 Problem Discription: We know that most students receive their allowance or stipend, but it usually disappears fast because it’s spent on things we want, food deliveries, and other unnecessary stuff. Before we know it, there’s nothing left for savings or school needs. That’s why we think it’s important to spend wisely, and a budget calculator can really help us manage our allowance better.
 
