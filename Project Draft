@@ -15,16 +15,15 @@ Project Objectives:
 Planned Features:
 
 •Input system for total allowance and percentage allocations for categories 
-(e.g., Savings, Food, Necessities, Wants, School Purposes).
+(Savings, Food, Necessities, Wants, School Purposes and etc.).
 •Automatic computation of allocated amounts per category.
-•Display of remaining balance after allocations.
 
 Planned Inputs and Outputs:
 
-Inputs:
+-Inputs:
 
 Total allowance amount
 •Percentage allocations for each category (Savings, Food, Necessities, Wants, School Purposes)
 
-Outputs:
+-Outputs:
 •Computed peso amount for each category
