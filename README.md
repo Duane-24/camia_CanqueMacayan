@@ -27,10 +27,6 @@ Enter how many percent on Necessities : 22%
 Enter how many percent on Wants: 10%  
 Enter how many percent for School purposes: 20%  
 
-Is there any extra on your money? [YES\NO]  
-
-NO
-
 Do you want to add another? [YES\NO]
 
 N0, so here is your budget for the month/week.
