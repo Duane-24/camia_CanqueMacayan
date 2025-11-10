@@ -4,8 +4,7 @@ Problem Discription: We know that most students receive their allowance or stipe
 
 ```Features:```
 - Calculates how much you have to spend
-- Uses percentage like: (20% of allowance is for food)
-- Asks if there is extra, and adds it to your Emergency Funds
+- Uses percentage like: (20% of allowance is for food)   
 - Stops and requests changes if the percentage goes above 100%     
 
 ```How to run the program:```
@@ -27,10 +26,6 @@ Enter how many percent on Food: 28%
 Enter how many percent on Necessities : 22%  
 Enter how many percent on Wants: 10%  
 Enter how many percent for School purposes: 20%  
-
-Is there any extra on your money? [YES\NO]  
-
-NO
 
 Do you want to add another? [YES\NO]
 

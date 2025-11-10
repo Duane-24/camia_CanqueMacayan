@@ -1,10 +1,33 @@
-```PROJECT DRAFT```
+PROJECT DRAFT
 
 Title: SmartSpend: Budget Calculator for Scholars
 
-Problem Statement: Many students have difficulty managing their allowance properly, often spending too much on 
-wants and unnecessary expenses. There is a need for a tool that helps them budget their money wisely and develop 
-better spending habits.
+Problem Statement:
+Many students have difficulty managing their allowance properly, often spending too much on wants and unnecessary expenses. 
+There is a need for a tool that helps them budget their money wisely and develop better spending habits.
 
- 
+Project Objectives:
 
+•To create a program that calculates and tracks a student’s spending based on their allowance and chosen budget categories.
+•To help students visualize how their money is divided among savings, necessities, wants, and school needs.
+•To provide a simple and user-friendly interface suitable for students with little to no experience in budgeting.
+
+Planned Features:
+
+•Input system for total allowance and percentage allocations for categories 
+(Savings, Food, Necessities, Wants, School Purposes and etc.).
+•Automatic computation of allocated amounts per category.
+
+Planned Inputs and Outputs:
+
+-Inputs:
+
+Total allowance amount
+•Percentage allocations for each category (Savings, Food, Necessities, Wants, School Purposes)
+
+-Outputs:
+•Computed peso amount for each category
+
+Logic Plan:
+The flowchart is on another file and it shows how the system will process user input, perform computations,
+and display the results.
