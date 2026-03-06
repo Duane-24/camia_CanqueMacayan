@@ -1,0 +1,43 @@
+Methodology
+
+The SmartSpend budget calculator was developed as a budgeting tool that helps students allocate 
+their allowance across different spending categories. The program was written in Python and follows 
+a step-by-step interactive process where the user inputs their financial information and receives 
+feedback based on validation checks.
+
+The program starts by displaying a welcome message about SmartSpend as a budget calculator designed 
+for students. 
+
+The feature implemented is allowance input validation. The program asks the user to input their total 
+allowance using the input() function. Since users may accidentally input invalid values such as letters
+or symbols, the program uses a try and except block to catch errors that occur when converting the input
+into a numerical value using float(). If an invalid input is detected, the program displays an error message
+and asks the user to try again.
+
+A while True loop ensures that the program continues prompting the user until a valid allowance is entered,
+additionally, the program checks whether the entered allowance is greater than zero. If the user enters zero 
+or a negative number, the program informs the user that the allowance must be greater than zero and repeats 
+the input process. This prevents unrealistic or incorrect budget calculations.
+
+After receiving a valid allowance value, the program proceeds to the budget allocation stage. In this section, 
+the user assigns percentages of their allowance to five categories: School, Necessities, Wants, Savings, and Food. 
+These categories were chosen because they represent common spending areas for students.
+
+Each percentage is collected individually and converted to a floating-point number. Similar to the allowance input,
+the program uses error handling to prevent invalid inputs such as letters or symbols. The program also checks if any
+of the percentages are negative values. If negative numbers are detected, the program displays an error message and 
+asks the user to input the values again.
+
+Once all percentages are entered, the program performs a validation check to determine whether the sum of the 
+percentages equals exactly 100%. This ensures that the user distributes their entire allowance without exceeding
+or missing any portion of the budget. If the total does not equal 100%, the program notifies the user and asks 
+them to re-enter the percentages.
+
+This validation process ensures that the budgeting system remains consistent and logically correct. When the percentages 
+successfully add up to 100%, the program confirms the correct allocation and prints a message thanking the user for using
+SmartSpend.
+
+
+
+
+
