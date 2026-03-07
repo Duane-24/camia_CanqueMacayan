@@ -1,44 +1,70 @@
-```SmartSpend: Budget Calculator for Scholars```
+'''SmartSpend: A Budget Calculator for Scholars'''
 
-Problem Discription: We know that most students receive their allowance or stipend, but it usually disappears fast because it’s spent on things we want, food deliveries, and other unnecessary stuff. Before we know it, there’s nothing left for savings or school needs. That’s why we think it’s important to spend wisely, and a budget calculator can really help us manage our allowance better.
+'''Problem Description'''
 
-```Features:```
-- Calculates how much you have to spend
-- Uses percentage like: (20% of allowance is for food)   
-- Stops and requests changes if the percentage goes above 100%     
+We know that most students receive their allowance or stipend, but it 
+usually disappears fast because it’s spent on things we want, food deliveries, 
+and other unnecessary stuff. Before we know it, there’s nothing left for 
+savings or school needs. Because of this, we think it is important to spend money
+wisely and plan where our allowance goes.
 
-```How to run the program:```
+SmartSpend is a simple budget calculator that helps students divide 
+their allowance into different categories. By using percentages, students can see 
+how much money they should spend on important things like food, school expenses, and 
+other needs. This helps them manage their allowance better and avoid overspending.
 
-1. Make sure to have a Python Interpreter installed.
-2. Have a copy of our code.
-3. Paste it on your Python application.
-4. Press **Run**.
-5. Follow the instructions displayed on your screen.  
+'''Features'''
 
-```Example Output```
+- Calculates how much money you can spend based on your allowance
+- Automatically deducts 10% of the allowance for Emergency Funds
+- Uses percentage allocation for categories such as Toiletries, Miscellaneous, 
+  Food, and School
+- Shows how many percent are still left to allocate after every input
+- Stops and asks the user to try again if the total percentage goes beyond the allowed amount
+- Prevents invalid inputs such as letters, symbols, or negative numbers
 
-Is this [monthly/weekly] budget?
+'''How to Run the Program'''
 
-How much money do you have?: 7500
+1) Make sure you have a Python interpreter installed.
+2) Have a copy of our SmartSpend code.
+3) Paste the code into your Python program or IDE.
+4) Press **Run**.
+5) Follow the instructions displayed on the screen.
 
-Enter how many percent for Savings: 20%  
-Enter how many percent on Food: 28%  
-Enter how many percent on Necessities : 22%  
-Enter how many percent on Wants: 10%  
-Enter how many percent for School purposes: 20%  
 
-Do you want to add another? [YES\NO]
+'''Example Output'''
 
-N0, so here is your budget for the month/week.
+====o====o====o====o====o====o====o====
+|| ~ SmartSpend: Budget Calculator ~ ||
+====o====o====o====o====o====o====o====
 
-Budget for Savings: ₱1500   
-Budget for Food: ₱2100    
-Budget for Necessities: ₱1650   
-Budget for Wants: ₱750   
-Budget for School Purposes: ₱1500  
+Welcome to SmartSpend: A Budget Calculator for Scholars :)
 
-#Contributors
+Enter your total allowance: 3000
 
+So your allowance is ₱3000
+We automatically deducted 10% for your Emergency funds
+Remaining: 90%
+
+Toiletries (%): 20
+Percent left: 70%
+
+Miscellaneous (%): 20
+Percent left: 50%
+
+Food (%): 40
+Percent left: 10%
+
+School (%): 10
+Percent left: 0%
+
+====== Budget List ======
+
+Emergency Funds: ₱300
+Toiletries: ₱600
+Miscellaneous: ₱600
+Food: ₱1200
+School: ₱300
 Jazmin Mathea Canque - created the Problem Discription, and steps on How to run the program  
 Duane Rainer Macayan - made the Features, Example Output, and flowchart  
 
