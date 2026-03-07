@@ -34,9 +34,7 @@ other needs. This helps them manage their allowance better and avoid overspendin
 
 ```Example Output```
 
-====o====o====o====o====o====o====o====   
 || ~ SmartSpend: Budget Calculator ~ ||  
-====o====o====o====o====o====o====o====  
 
 Welcome to SmartSpend: A Budget Calculator for Scholars :)
 
