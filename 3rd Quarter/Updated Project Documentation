@@ -1,0 +1,15 @@
+Along the making of our code, some features from the original plan were changed 
+to improve the program. In the original version, the program only asked the user 
+to manually enter percentages for categories like savings, food, necessities, 
+wants, and school purposes. In the updated version, 10% of the allowance is 
+automatically deducted for emergency funds to make sure that users always have
+money saved for unexpected situations.
+
+The categories were also updated to Toiletries, Miscellaneous, Food, and School, 
+which are more common expenses for students. Another improvement is that the program
+now shows how many percent are left to allocate after each input, helping users keep 
+track of their budget more easily.
+
+Some planned features, such as asking if the budget is weekly or monthly and adding
+more categories after the main input, were removed to keep the program simpler and more
+focused on the main budgeting function.
