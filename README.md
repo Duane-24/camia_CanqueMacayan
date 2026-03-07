@@ -64,7 +64,8 @@ Miscellaneous: ₱600
 Food: ₱1200  
 School: ₱300  
 
-```Contributors```   
+```Contributors```    
+
 Jazmin Mathea Canque - created the Problem Discription, and steps on How to run the program    
 Duane Rainer Macayan - made the Features, Example Output, and flowchart  
 
