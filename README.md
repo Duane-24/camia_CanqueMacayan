@@ -34,9 +34,9 @@ other needs. This helps them manage their allowance better and avoid overspendin
 
 ```Example Output```
 
-====o====o====o====o====o====o====o====
-|| ~ SmartSpend: Budget Calculator ~ ||
-====o====o====o====o====o====o====o====
+====o====o====o====o====o====o====o====   
+|| ~ SmartSpend: Budget Calculator ~ ||  
+====o====o====o====o====o====o====o====  
 
 Welcome to SmartSpend: A Budget Calculator for Scholars :)
 
@@ -66,7 +66,7 @@ Miscellaneous: ₱600
 Food: ₱1200  
 School: ₱300  
 
-```Contributors```
-Jazmin Mathea Canque - created the Problem Discription, and steps on How to run the program  
+```Contributors```   
+Jazmin Mathea Canque - created the Problem Discription, and steps on How to run the program    
 Duane Rainer Macayan - made the Features, Example Output, and flowchart  
 
