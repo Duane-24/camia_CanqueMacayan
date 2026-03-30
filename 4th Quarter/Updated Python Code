@@ -58,7 +58,7 @@ while True:
         extra = remaining_percent - total_used
 
         if extra > 0:
-            print("\nIt seems that u have an extra , extra, "%", hmm.")
+            print(f"\nIt seems that u have an extra {extra} %, hmm.")
             print("Might as well add this to your Emergency Funds :3 .\n")
             emergency_percent += extra
 
