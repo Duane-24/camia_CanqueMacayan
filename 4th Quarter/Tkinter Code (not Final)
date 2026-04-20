@@ -1,107 +1,223 @@
 import tkinter as tk
 from tkinter import messagebox
+from datetime import datetime
+import os
 
 root = tk.Tk()
 root.title("SmartSpend")
-root.geometry("480x680")
+root.geometry("500x700")
+root.configure(bg="#dff6ff")
 
-# Variables
+# ==VARIABLES==
 result_text = tk.StringVar()
 percent_left_text = tk.StringVar()
 percent_left_text.set("Remaining Percent: 90%")
 
-# Function
+history = []
+history_file = "history.txt"
+
+# Create file if it does not exist
+if not os.path.exists(history_file):
+    with open(history_file, "w", encoding="utf-8") as file:
+        file.write("=== SmartSpend History ===\n\n")
+
+# ==INPUT VALIDATION==
+def only_numbers(value):
+    if value == "":
+        return True
+    try:
+        num = float(value)
+        if num < 0:
+            return False
+        return True
+    except:
+        return False
+
+validate_cmd = root.register(only_numbers)
+
+# ==ANIMATED YES==
+def animate_text(text, index=0):
+    if index <= len(text):
+        result_text.set(text[:index])
+        root.after(10, animate_text, text, index + 1)
+
+# ==LIVE UPDATE==
+def live_update(event=None):
+    try:
+        toiletries = float(entry_toiletries.get() or 0)
+        misc = float(entry_misc.get() or 0)
+        food = float(entry_food.get() or 0)
+        school = float(entry_school.get() or 0)
+
+        remaining = 90 - (toiletries + misc + food + school)
+
+        if remaining < 0:
+            percent_left_text.set("Exceeded 90%!")
+        else:
+            percent_left_text.set(f"Remaining Percent: {remaining}%")
+
+    except:
+        percent_left_text.set("Remaining Percent: 90%")
+
+# ==CALCULATION==
 def calculate():
     try:
         allowance = float(entry_allowance.get())
-
-        if allowance <= 0:
-            messagebox.showerror("Error", "Allowance must be greater than 0")
-            return
-
-        emergency_percent = 10
-        remaining_percent = 90
-
         toiletries = float(entry_toiletries.get())
         misc = float(entry_misc.get())
         food = float(entry_food.get())
         school = float(entry_school.get())
-
-        if toiletries < 0 or misc < 0 or food < 0 or school < 0:
-            messagebox.showerror("Error", "No negative numbers!")
-            return
-
-        total_used = toiletries + misc + food + school
-
-        if total_used > remaining_percent:
-            messagebox.showerror("Error", "You exceeded the remaining 90%!")
-            return
-
-        remaining = remaining_percent - total_used
-        percent_left_text.set(f"Remaining Percent: {remaining}%")
-
-        if remaining > 0:
-            messagebox.showinfo("Extra Found", f"You have extra {remaining}%. Added to Emergency Funds!")
-            emergency_percent += remaining
-
-        # Calculation
-        emergency_money = allowance * emergency_percent / 100
-        toiletries_money = allowance * toiletries / 100
-        misc_money = allowance * misc / 100
-        food_money = allowance * food / 100
-        school_money = allowance * school / 100
-
-        # Output
-        result_text.set(
-            f"====== Budget List ======\n\n"
-            f"Emergency Funds: ₱{emergency_money:.2f}\n"
-            f"Toiletries: ₱{toiletries_money:.2f}\n"
-            f"Miscellaneous: ₱{misc_money:.2f}\n"
-            f"Food: ₱{food_money:.2f}\n"
-            f"School: ₱{school_money:.2f}\n\n"
-            f"Thanks for using SmartSpend! Use it again :)\n"
-            f"Gabsahamnida, have a nice day!"
-        )
-
     except:
         messagebox.showerror("Error", "Please enter numbers only!")
+        return
 
-# UI
+    if allowance <= 0:
+        messagebox.showerror("Error", "Allowance must be greater than 0")
+        return
 
-tk.Label(root, text="==== SmartSpend ====", font=("Edwardian Script ITC", 32)).pack(pady=10)
+    savings_percent = 10
+    emergency_percent = 0
+    remaining_percent = 90
 
-tk.Label(root, text="A Budget Calculator for Scholars :3").pack()
-tk.Label(root, text="Note: 10% is automatically saved for Emergency Funds\n").pack()
+    total_used = toiletries + misc + food + school
 
-# Allowance
-tk.Label(root, text="Enter your total allowance:").pack()
-entry_allowance = tk.Entry(root)
-entry_allowance.pack()
+    if total_used > remaining_percent:
+        messagebox.showerror("Error", "You exceeded the remaining 90%!")
+        return
 
-# Inputs
-tk.Label(root, text="\nToiletries (%)").pack()
-entry_toiletries = tk.Entry(root)
-entry_toiletries.pack()
+    remaining = remaining_percent - total_used
+    percent_left_text.set(f"Remaining Percent: {remaining}%")
 
-tk.Label(root, text="Miscellaneous (%)").pack()
-entry_misc = tk.Entry(root)
-entry_misc.pack()
+    if remaining > 0:
+        messagebox.showinfo("Extra Found", f"You have extra {remaining}%. Added to Emergency Funds!")
+        emergency_percent += remaining
 
-tk.Label(root, text="Food (%)").pack()
-entry_food = tk.Entry(root)
-entry_food.pack()
+    # ==CALCULATIONS==
+    savings_money = allowance * savings_percent / 100
+    emergency_money = allowance * emergency_percent / 100
+    toiletries_money = allowance * toiletries / 100
+    misc_money = allowance * misc / 100
+    food_money = allowance * food / 100
+    school_money = allowance * school / 100
 
-tk.Label(root, text="School (%)").pack()
-entry_school = tk.Entry(root)
-entry_school.pack()
+    output = (
+        f"====== Budget List ======\n\n"
+        f"Savings: \u20B1{savings_money:.2f}\n"
+        f"Emergency Funds: \u20B1{emergency_money:.2f}\n\n"
+        f"Toiletries: \u20B1{toiletries_money:.2f}\n"
+        f"Miscellaneous: \u20B1{misc_money:.2f}\n"
+        f"Food: \u20B1{food_money:.2f}\n"
+        f"School: \u20B1{school_money:.2f}\n\n"
+        f"Thanks for using SmartSpend! 💙\n"
+        f"Gamsahamnida, have a nice day!"
+    )
 
-# Remaining %
-tk.Label(root, textvariable=percent_left_text, font=("Arial", 10)).pack(pady=5)
+    animate_text(output)
 
-# Button
-tk.Button(root, text="Calculate", command=calculate).pack(pady=10)
+    # ==HISTORY==
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    history_entry = f"{current_time}\n{output}\n{'-'*40}\n"
 
-# Result
-tk.Label(root, textvariable=result_text, justify="left").pack(pady=10)
+    history.append(history_entry)
+
+    with open(history_file, "a", encoding="utf-8") as file:
+        file.write(history_entry)
+
+# ==CHECK HISTORY==
+def show_history():
+    history_window = tk.Toplevel(root)
+    history_window.title("History")
+    history_window.geometry("400x500")
+
+    text = tk.Text(history_window, wrap="word")
+    text.pack(fill="both", expand=True)
+
+    scrollbar = tk.Scrollbar(history_window, command=text.yview)
+    scrollbar.pack(side="right", fill="y")
+
+    text.config(yscrollcommand=scrollbar.set)
+
+    try:
+        with open(history_file, "r", encoding="utf-8") as file:
+            content = file.read()
+            text.insert(tk.END, content)
+    except:
+        text.insert(tk.END, "No history found.")
+
+# ==UI-DESIGN==
+
+tk.Label(root, text="SmartSpend", font=("Edwardian Script ITC", 36),
+         bg="#dff6ff", fg="#0077b6").pack(pady=15)
+
+tk.Label(root, text="A Budget Calculator for Scholars :3💙", bg="#dff6ff").pack()
+tk.Label(root, text="10% is automatically saved for Savings",
+         bg="#dff6ff").pack(pady=(0, 10))
+
+card = tk.Frame(root, bg="#ffffff")
+card.pack(padx=20, pady=10, fill="both")
+
+tk.Label(card, text="Allowance", bg="#ffffff",
+         font=("Arial", 11, "bold")).pack(pady=(10, 5))
+
+entry_allowance = tk.Entry(card, validate="key",
+                           validatecommand=(validate_cmd, "%P"),
+                           justify="center")
+entry_allowance.pack(ipady=4)
+
+tk.Frame(card, height=1, bg="#ccc").pack(fill="x", pady=10)
+
+def create_input(label):
+    tk.Label(card, text=label, bg="#ffffff").pack(pady=(5, 2))
+    entry = tk.Entry(card, validate="key",
+                     validatecommand=(validate_cmd, "%P"),
+                     justify="center")
+    entry.pack(ipady=3)
+    return entry
+
+entry_toiletries = create_input("Toiletries (%)")
+entry_misc = create_input("Miscellaneous (%)")
+entry_food = create_input("Food (%)")
+entry_school = create_input("School (%)")
+
+entry_allowance.bind("<KeyRelease>", live_update)
+entry_toiletries.bind("<KeyRelease>", live_update)
+entry_misc.bind("<KeyRelease>", live_update)
+entry_food.bind("<KeyRelease>", live_update)
+entry_school.bind("<KeyRelease>", live_update)
+
+tk.Label(card, textvariable=percent_left_text,
+         bg="#ffffff", fg="#0096c7",
+         font=("Arial", 11, "bold")).pack(pady=10)
+
+tk.Button(card, text="Calculate", command=calculate,
+          bg="#48cae4", fg="white",
+          font=("Arial", 12, "bold")).pack(pady=10)
+
+tk.Button(card, text="Show History", command=show_history,
+          bg="#90e0ef",
+          font=("Arial", 11, "bold")).pack(pady=5)
+
+# ==SCROLLBAR==
+result_frame = tk.Frame(root)
+result_frame.pack(padx=20, pady=10, fill="both", expand=True)
+
+scrollbar = tk.Scrollbar(result_frame)
+scrollbar.pack(side="right", fill="y")
+
+text_box = tk.Text(
+    result_frame,
+    wrap="word",
+    yscrollcommand=scrollbar.set,
+    bg="#ffffff"
+)
+text_box.pack(fill="both", expand=True)
+
+scrollbar.config(command=text_box.yview)
+
+def update_result_display(*args):
+    text_box.delete("1.0", tk.END)
+    text_box.insert(tk.END, result_text.get())
+
+result_text.trace_add("write", update_result_display)
 
 root.mainloop()
