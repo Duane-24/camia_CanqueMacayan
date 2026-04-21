@@ -1,0 +1,38 @@
+The SmartSpend budget calculator was developed as a tool to help students manage their 
+allowance through an interactive interface. Instead of a traditional 
+text-based program, this version uses a Graphical User Interface (GUI) built with Python’s
+Tkinter library. This allows the user to see all their spending categories at once and
+watch their budget update in real-time as they type.
+
+The process starts with a welcoming interface designed specifically for scholars. To
+make the experience easier, the program immediately implements a 10% Savings Rule. 
+Before the user even enters a single expense, the code is programmed to automatically 
+deduct 10% of the total allowance for savings. This ensures that the student is building 
+a financial safety net.
+
+For the Allowance input, we implemented a validation system. Using a validation 
+command, the program monitors every key pressed. If a user tries to enter a letter or a 
+symbol instead of a number, the code simply blocks the input from appearing. Additionally,
+a Try-Except block is used during the final calculation to catch any remaining errors, 
+making sure that the allowance is a positive, valid number before any math happens.
+
+When a valid allowance is entered, the student moves to the category section, where they 
+allocate percentages for Toiletries, Miscellaneous, Food, and School. To make the app more 
+plain-sailing, we used Event Binding. This means that every time the user types a number 
+into a category box, the program triggers a Live Update function. This function immediately 
+calculates how much of the remaining 90% is left and displays it on the screen, giving the 
+user immediate feedback.
+
+A logic check is performed to ensure the budget stays within its limits. Since 10% is 
+already saved, the total of the four categories must not exceed the remaining 90%. If a 
+student accidentally enters percentages that go over this limit, the Live Update label 
+changes to a warning, and the program will show an error message if they try to calculate. 
+This 90% Rule keeps the budgeting system consistent and prevents the user from planning to 
+spend money they don't actually have.
+
+When the user clicks the "Calculate" button and the percentages are valid, the program 
+performs the final math, converting those percentages into actual currency. Any leftover 
+percentage is automatically moved into an Emergency Fund, maximizing the student's savings.
+Finally, the program uses File I/O to save a permanent record of the budget to a history file 
+and displays the results with a typing animation, finishing with a friendly Gamsahamnida to
+thank the user.
