@@ -1,0 +1,55 @@
+When we first started, we didn't just write one big pile of code. We used the segregation
+method segregation, where we broke the project into small, separate pieces first. We gathered 
+various ideas and tutorials from YouTube to help us understand how to structure a budget 
+app, which we then used as the foundation for our logic. We made one piece for the colors 
+and design, one piece for the math, and one piece for saving files. By working on these parts 
+individually, we could make sure each one worked perfectly before we combined them into the 
+final SmartSpend program. This made it much easier for us to find and fix mistakes because 
+we knew exactly which section was responsible for each task.
+
+For the look of the app, we used the Tkinter library to build the window and set it to a specific
+size so it looks good on any screen. We used the tk.Label function to add titles and the tk.Entry
+function to create boxes where the user can type their allowance and percentages. To keep things 
+clean, we made a special function called create_input() that allowed us to build all the spending
+boxes (like Food and School) using the same style. We also chose a "blue and white" color theme 
+using hex codes like #e3f2fd to give the app a calm, professional feeling, inspired by modern UI 
+designs we studied online.
+
+We wanted to make sure our app was smart, so we added functions to handle how people type. 
+We created a function called only_numbers that checks every keypress to make sure letters can't
+be typed into the boxes. If someone tries to type a letter, the app simply won't let it appear.
+We also added a Live Update feature using the .bind() function. This is really helpful because 
+as soon as you release a key after typing a percentage, the app instantly calculates how much of
+your 90% budget is left. This gives the user real-time feedback without them having to click a 
+button every time.
+
+The brain of our program is the calculate() function. When the user clicks the button, this 
+function uses the .get() method to pull all the numbers from the entry boxes and turn them into 
+decimals. We programmed it to automatically take 10% of the total allowance for savings first. 
+Then, it takes the percentages for things like Toiletries or Misc and calculates the exact 
+money amount using simple math (Allowance \times Percentage / 100). If there is any percentage 
+left over from the 90%, we made the code smart enough to automatically move that extra money into 
+an "Emergency Fund" so no 
+cent is wasted.
+
+To make the app feel more alive, we didn't just want the results to pop up instantly. We created a 
+function called animate_text() that types out the budget list one letter at a time in the blue 
+result box. Because the result list can get quite long, we needed a way to navigate it easily. We 
+took a scroll bar template from Gemini and modified the code to fit our specific colors and layout. 
+By integrating this template into our design, we created a smooth scrolling area that ensures the 
+user can see their entire budget breakdown without the window becoming cluttered 
+or messy. 
+
+The last thing we added was a way to remember past budgets. We used the os and datetime modules to 
+create a file on the computer called history.txt. Every time we hit calculate, the program opens 
+this file and appends the new budget list along with the exact date and time. We also built a 
+Show History button that opens a separate Toplevel window. This window reads the text file and 
+displays everything we’ve ever calculated in a scrollable list. This final step ensures that 
+SmartSpend isn't just a calculator, but a long-term tool for tracking how a student manages their 
+money over time.
+
+Resources:
+1) https://www.w3schools.com/python/ref_module_tkinter.asp
+2) Youtube: John Elder Python Tkinter Playlist
+3) https://youtu.be/TuLxsvK4svQ?si=IKC3v0GK_aTr3yvm
+4) Gemini
