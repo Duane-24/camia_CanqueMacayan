@@ -3,10 +3,18 @@ from tkinter import messagebox
 from datetime import datetime
 import os
 
+# ==COLORS==
+BG_COLOR = "#e3f2fd"
+CARD_COLOR = "#ffffff"
+ACCENT = "#1565c0"
+BUTTON_COLOR = "#1e88e5"
+INPUT_BG = "#bbdefb"
+INPUT_FG = "#000000"
+
 root = tk.Tk()
 root.title("SmartSpend")
 root.geometry("500x700")
-root.configure(bg="#dff6ff")
+root.configure(bg=BG_COLOR)
 
 # ==VARIABLES==
 result_text = tk.StringVar()
@@ -16,7 +24,6 @@ percent_left_text.set("Remaining Percent: 90%")
 history = []
 history_file = "history.txt"
 
-# Create file if it does not exist
 if not os.path.exists(history_file):
     with open(history_file, "w", encoding="utf-8") as file:
         file.write("=== SmartSpend History ===\n\n")
@@ -35,7 +42,7 @@ def only_numbers(value):
 
 validate_cmd = root.register(only_numbers)
 
-# ==ANIMATED YES==
+# ==ANIMATED TEXT==
 def animate_text(text, index=0):
     if index <= len(text):
         result_text.set(text[:index])
@@ -92,7 +99,6 @@ def calculate():
         messagebox.showinfo("Extra Found", f"You have extra {remaining}%. Added to Emergency Funds!")
         emergency_percent += remaining
 
-    # ==CALCULATIONS==
     savings_money = allowance * savings_percent / 100
     emergency_money = allowance * emergency_percent / 100
     toiletries_money = allowance * toiletries / 100
@@ -114,7 +120,6 @@ def calculate():
 
     animate_text(output)
 
-    # ==HISTORY==
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     history_entry = f"{current_time}\n{output}\n{'-'*40}\n"
 
@@ -123,13 +128,17 @@ def calculate():
     with open(history_file, "a", encoding="utf-8") as file:
         file.write(history_entry)
 
-# ==CHECK HISTORY==
+# ==HISTORY WINDOW==
 def show_history():
     history_window = tk.Toplevel(root)
     history_window.title("History")
     history_window.geometry("400x500")
+    history_window.configure(bg="#e3f2fd")
 
-    text = tk.Text(history_window, wrap="word")
+    text = tk.Text(history_window,
+                   wrap="word",
+                   bg="#b3e5fc",
+                   fg="#000000")
     text.pack(fill="both", expand=True)
 
     scrollbar = tk.Scrollbar(history_window, command=text.yview)
@@ -139,39 +148,56 @@ def show_history():
 
     try:
         with open(history_file, "r", encoding="utf-8") as file:
-            content = file.read()
-            text.insert(tk.END, content)
+            text.insert(tk.END, file.read())
     except:
         text.insert(tk.END, "No history found.")
 
-# ==UI-DESIGN==
-
+# ==UI==
 tk.Label(root, text="SmartSpend", font=("Edwardian Script ITC", 36),
-         bg="#dff6ff", fg="#0077b6").pack(pady=15)
+         bg=BG_COLOR, fg=ACCENT).pack(pady=15)
 
-tk.Label(root, text="A Budget Calculator for Scholars :3💙", bg="#dff6ff").pack()
+tk.Label(root, text="A Budget Calculator for Scholars :3💙",
+         bg=BG_COLOR, fg="black").pack()
+
 tk.Label(root, text="10% is automatically saved for Savings",
-         bg="#dff6ff").pack(pady=(0, 10))
+         bg=BG_COLOR, fg="black").pack(pady=(0, 10))
 
-card = tk.Frame(root, bg="#ffffff")
+card = tk.Frame(root, bg=CARD_COLOR)
 card.pack(padx=20, pady=10, fill="both")
 
-tk.Label(card, text="Allowance", bg="#ffffff",
+tk.Label(card, text="Allowance", bg=CARD_COLOR,
+         fg="black",
          font=("Arial", 11, "bold")).pack(pady=(10, 5))
 
-entry_allowance = tk.Entry(card, validate="key",
+entry_allowance = tk.Entry(card,
+                           validate="key",
                            validatecommand=(validate_cmd, "%P"),
-                           justify="center")
-entry_allowance.pack(ipady=4)
+                           justify="center",
+                           bg=INPUT_BG,
+                           fg=INPUT_FG,
+                           insertbackground="black",
+                           relief="solid",
+                           bd=2,
+                           selectbackground="#90a4ae",
+                           selectforeground="#000000")
+entry_allowance.pack(ipady=5)
 
 tk.Frame(card, height=1, bg="#ccc").pack(fill="x", pady=10)
 
 def create_input(label):
-    tk.Label(card, text=label, bg="#ffffff").pack(pady=(5, 2))
-    entry = tk.Entry(card, validate="key",
+    tk.Label(card, text=label, bg=CARD_COLOR, fg="black").pack(pady=(5, 2))
+    entry = tk.Entry(card,
+                     validate="key",
                      validatecommand=(validate_cmd, "%P"),
-                     justify="center")
-    entry.pack(ipady=3)
+                     justify="center",
+                     bg=INPUT_BG,
+                     fg=INPUT_FG,
+                     insertbackground="black",
+                     relief="solid",
+                     bd=2,
+                     selectbackground="#90a4ae",
+                     selectforeground="#000000")
+    entry.pack(ipady=5)
     return entry
 
 entry_toiletries = create_input("Toiletries (%)")
@@ -186,30 +212,29 @@ entry_food.bind("<KeyRelease>", live_update)
 entry_school.bind("<KeyRelease>", live_update)
 
 tk.Label(card, textvariable=percent_left_text,
-         bg="#ffffff", fg="#0096c7",
+         bg=CARD_COLOR, fg="black",
          font=("Arial", 11, "bold")).pack(pady=10)
 
 tk.Button(card, text="Calculate", command=calculate,
-          bg="#48cae4", fg="white",
+          bg=BUTTON_COLOR, fg="white",
           font=("Arial", 12, "bold")).pack(pady=10)
 
 tk.Button(card, text="Show History", command=show_history,
-          bg="#90e0ef",
+          bg="#64b5f6",
           font=("Arial", 11, "bold")).pack(pady=5)
 
-# ==SCROLLBAR==
+# ==RESULT BOX==
 result_frame = tk.Frame(root)
 result_frame.pack(padx=20, pady=10, fill="both", expand=True)
 
 scrollbar = tk.Scrollbar(result_frame)
 scrollbar.pack(side="right", fill="y")
 
-text_box = tk.Text(
-    result_frame,
-    wrap="word",
-    yscrollcommand=scrollbar.set,
-    bg="#ffffff"
-)
+text_box = tk.Text(result_frame,
+                   wrap="word",
+                   yscrollcommand=scrollbar.set,
+                   bg="#b3e5fc",
+                   fg="#000000")
 text_box.pack(fill="both", expand=True)
 
 scrollbar.config(command=text_box.yview)
